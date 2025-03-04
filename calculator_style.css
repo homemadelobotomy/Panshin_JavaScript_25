@@ -1,0 +1,128 @@
+.calcBox{
+  display: flex; 
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+p{
+  color: #111111;
+}
+.calc{
+  display: inline-flex;
+  flex-direction: column; 
+  justify-content: center;
+  align-items: center;
+}
+
+.my-btn { 
+    margin-right: 5px;           /* задаем отступ от кнопки справа */
+    margin-top: 5px;             /* задаем отступ от кнопки сверху*/
+    width: 50px;                 /* задаем ширину кнопки */
+    height: 50px;                /* задаем высоту кнопки */
+    border-radius: 50%;          /* округляем кнопку */
+    border: none;                /* отключаем обводку */
+    background: #e9e9e9;         /* задаем серый цвет кнопки */
+    color: #111111;                /* задаем белый цвет текста внутри кнопки */
+    font-size: 1.5rem;           /* увеличим размер шрифта */
+    font-family:  Georgia, 'Times New Roman', Times, ; /* сменим шрифт */
+    cursor: pointer;             /* при наведении на кнопку курсор будет изменен
+                                    со стрелки на 'указательный палец' */
+    font-weight: 550;
+    user-select: none;           /* отключаем возможность выделить текст внутри кнопки */
+  } 
+  .my-btn:hover {
+    background: darkgray; /* при наведение курсора на кнопку, она будет окрашена в серый */
+  }
+  
+  /* active - это состояние активации элемента. В случае кнопки - нажатие на нее */
+  .my-btn:active {
+    filter: brightness(130%); /* увеличим интенсивность цвета для эффекта вспышки */
+  }
+  
+  .my-btn.primary { 
+    background: #e60023; /* цвет кнопки оранжевый */
+    color: white;
+  }
+  
+  /* селектор для кнопок второстепенных операций */
+  .my-btn.secondary { 
+    background: #111111; 
+    color: white;
+  }
+  .my-btn.secondary:hover { 
+    background: #474646;
+  }
+
+  .my-btn.primary:hover { 
+    background: #a90019; 
+    
+  }
+  
+  .dark-mode{
+    background-color: #474646;
+    color: #474646;
+  }
+  .light-mode{
+    background-color: #fff;
+    color: #fff;
+  }
+  .wallpaper-mode{
+    background-image: url('wallpaper.jpg');
+    background-position: center;
+    background-size: auto;
+    background-repeat: no-repeat;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  /* селектор для кнопки расчета выражения (=) */
+  .execute { 
+    width: 110px;          /* сделаем кнопку шире других */
+    border-radius: 34px;   /* подкорректируем округлость */
+  }
+  .switch{
+    width: 150px;
+    border-radius: 34px;
+    font-weight: 600;
+    font-size: 1rem;
+  }
+  #result { 
+    width: 220px;
+    height: 60px;
+    margin-bottom: 15px;         /* отступ снизу */
+    padding-right: 10px;         /* выступ справа */
+    background:#e9e9e9; /* цвет можно задавать и таким образом */
+    text-align: right;           /* примагнитим текст к правой стороне */
+    color: #111111;              /* цвет текста белый */
+    font-size: 1.5rem;
+    font-family: Arial, Helvetica, sans-serif;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: end;
+  }
+  .author_name{
+    margin-top: 5%;
+  }
+  h1{
+    font-size: 1.2rem;
+    font-weight: 100;
+    font-family: Arial, Helvetica, sans-serif;
+    color: #111111;
+  }
+  .lab-goal{
+    width: 414px;
+  }
+  mark{
+    background-color: #e60023;
+    color: #fff;
+    padding: 2px;
+    margin: 2px;
+    border-radius: 10%;
+  }
