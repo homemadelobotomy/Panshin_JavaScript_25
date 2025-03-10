@@ -9,6 +9,12 @@
   width: 100%;
   height: 100%;
 }
+summary {
+  color: black;
+  font-weight: bold;
+  cursor: pointer;
+}
+
 p{
   color: #111111;
 }
@@ -17,6 +23,10 @@ p{
   flex-direction: column; 
   justify-content: center;
   align-items: center;
+  background-color: #f5f5f5;
+  padding: 20px;
+  border-radius: 20px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
 }
 
 .my-btn { 
@@ -29,11 +39,12 @@ p{
     background: #e9e9e9;         /* задаем серый цвет кнопки */
     color: #111111;                /* задаем белый цвет текста внутри кнопки */
     font-size: 1.5rem;           /* увеличим размер шрифта */
-    font-family:  Georgia, 'Times New Roman', Times, ; /* сменим шрифт */
+    font-family: BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen-Sans, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', Ubuntu, Cantarell, 'Fira Sans', 'Droid Sans', 'Helvetica Neue', Helvetica, 'ヒラギノ角ゴ Pro W3', 'メイリオ', Meiryo, 'ＭＳ Ｐゴシック', Arial, sans-serif;; /* сменим шрифт */
     cursor: pointer;             /* при наведении на кнопку курсор будет изменен
                                     со стрелки на 'указательный палец' */
     font-weight: 550;
     user-select: none;           /* отключаем возможность выделить текст внутри кнопки */
+    transition: transform 0.1s ease;
   } 
   .my-btn:hover {
     background: darkgray; /* при наведение курсора на кнопку, она будет окрашена в серый */
@@ -42,6 +53,7 @@ p{
   /* active - это состояние активации элемента. В случае кнопки - нажатие на нее */
   .my-btn:active {
     filter: brightness(130%); /* увеличим интенсивность цвета для эффекта вспышки */
+    transform: scale(0.95);
   }
   
   .my-btn.primary { 
@@ -106,6 +118,7 @@ p{
     display: flex;
     align-items: center;
     justify-content: end;
+    box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.1);
   }
   .author_name{
     margin-top: 5%;
@@ -118,6 +131,11 @@ p{
   }
   .lab-goal{
     width: 414px;
+    background-color: #f5f5f5;
+    margin-top: 20px;
+    padding: 15px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
   }
   mark{
     background-color: #e60023;
@@ -125,4 +143,10 @@ p{
     padding: 2px;
     margin: 2px;
     border-radius: 10%;
+  }
+  details {
+    background-color: #f5f5f5;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    padding: 10px;
   }
