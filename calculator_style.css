@@ -2,7 +2,6 @@
   display: flex; 
   justify-content: center;
   align-items: center;
-  flex-direction: column;
   position: absolute;
   top: 0;
   left: 0;
@@ -14,7 +13,13 @@ summary {
   font-weight: bold;
   cursor: pointer;
 }
-
+.additional{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-left: 10%;
+}
 p{
   color: #111111;
 }
@@ -27,6 +32,7 @@ p{
   padding: 20px;
   border-radius: 20px;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  margin-left: 30%;
 }
 
 .my-btn { 
@@ -36,12 +42,12 @@ p{
     height: 50px;                /* задаем высоту кнопки */
     border-radius: 50%;          /* округляем кнопку */
     border: none;                /* отключаем обводку */
-    background: #e9e9e9;         /* задаем серый цвет кнопки */
+    background: #ffffff;         /* задаем серый цвет кнопки */
     color: #111111;                /* задаем белый цвет текста внутри кнопки */
     font-size: 1.5rem;           /* увеличим размер шрифта */
-    font-family: BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen-Sans, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', Ubuntu, Cantarell, 'Fira Sans', 'Droid Sans', 'Helvetica Neue', Helvetica, 'ヒラギノ角ゴ Pro W3', 'メイリオ', Meiryo, 'ＭＳ Ｐゴシック', Arial, sans-serif;; /* сменим шрифт */
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen-Sans, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', Ubuntu, Cantarell, 'Fira Sans', 'Droid Sans', 'Helvetica Neue', Helvetica, 'ヒラギノ角ゴ Pro W3', 'メイリオ', Meiryo, 'ＭＳ Ｐゴシック', Arial, sans-serif; /* сменим шрифт */
     cursor: pointer;             /* при наведении на кнопку курсор будет изменен
-                                    со стрелки на 'указательный палец' */
+                                   со стрелки на 'указательный палец' */
     font-weight: 550;
     user-select: none;           /* отключаем возможность выделить текст внутри кнопки */
     transition: transform 0.1s ease;
@@ -57,14 +63,14 @@ p{
   }
   
   .my-btn.primary { 
-    background: #e60023; /* цвет кнопки оранжевый */
+    background: #e60023; /* цвет кнопки красный */
     color: white;
   }
   
   /* селектор для кнопок второстепенных операций */
   .my-btn.secondary { 
-    background: #111111; 
-    color: white;
+    background: #e9e9e9; 
+    color: black;
   }
   .my-btn.secondary:hover { 
     background: #474646;
