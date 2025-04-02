@@ -10,9 +10,19 @@
 <body class="light-mode">
   <div class = "calcBox"> <!-- div - это базовый html-контейнер, который может содержать в себе другие html-элементы. -->
     <div class="calc">
-    <div>
+        
+        <div class = "base">
+            <div class = "additional_op" id = "additional_op">
+                
+                <button class="my-btn" id="btn_additional_degrees">°</button>
+                <button class="my-btn" id="btn_additional_000">000</button>
+                <button class="my-btn" id="btn_additional_factorial">!</button>
+                <button class="my-btn" id="btn_op_sign">+/-</button>
+                <button class="my-btn" id="btn_additional_theme"></button>
+            </div>
+            <div>
         <!-- блок с экраном калькулятора, где будет выводиться результат вычислений. -->
-        <div id="result">
+        <div id = "result" class="light-mode">
         0
         </div>
 
@@ -20,13 +30,15 @@
         <div>
         <!--горизонтальный ряд из четырех кнопок-->
         <div>  
+            
             <button class="my-btn secondary" id="btn_op_clear">C</button>    <!-- про тэг кнопки: https://www.w3schools.com/tags/tag_button.asp -->
-            <button class="my-btn secondary" id="btn_op_sign">+/-</button>
+            <button class="my-btn secondary" id="btn_backspace">⌫</button>
             <button class="my-btn secondary" id="btn_op_percent">%</button>
             <button class="my-btn primary" id="btn_op_div">/</button>
         </div>
 
         <div>
+            
             <button class="my-btn" id="btn_digit_7">7</button>
             <button class="my-btn" id="btn_digit_8">8</button>
             <button class="my-btn" id="btn_digit_9">9</button>
@@ -48,14 +60,16 @@
         </div>
 
         <div>
+            <button class="my-btn secondary" id="btn_add" onclick = "toggleAdditionalOperations()">☰</button>
             <button class="my-btn" id="btn_digit_0">0</button>
             <button class="my-btn" id="btn_digit_dot">.</button>
-            <button class="my-btn execute" id="btn_op_equal">=</button>
+            <button class="my-btn" id="btn_op_equal">=</button>
         </div>
         </div>
-        
     </div>
-
+    </div>
+</div>
+    <div class="additional">
     <div class="author_name">        
         <h1>ЛР выполнил: Паншин Максим Владимирович</h1>
     </div>
@@ -70,13 +84,14 @@
                 <p>Группа: РТ5-31Б</p>
             </details>
             
-    </div>
+    
     <div class="lab-goal">
         <p>Цель данной лабораторной работы -<mark> знакомство </mark> с инструментами 
             построения пользовательских интерфейсов web-сайтов: <mark>HTML</mark>, <mark> CSS</mark>. 
             В ходе выполнения работы, вам предстоит ознакомиться с кодом реализации простого калькулятора, 
             и затем выполнить задания по варианту.</p>
-</div> 
+        </div>
+    </div> 
 </div>
 </body>
 <script>
