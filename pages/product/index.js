@@ -29,14 +29,14 @@ export class ProductPage {
         )
     }
 
-    render() {
+    render(mainPage) {
         this.parent.innerHTML = ''
         const html = this.getHTML()
         const header = new Header(this.parent,this.data)
         header.render()
         this.parent.insertAdjacentHTML('beforeend', html)
         const data = this.getData()
-        const product = new ProductComponent(this.pageRoot())
-        product.render(data)
+        const product = new ProductComponent(this.pageRoot(),this.data)
+        product.render(data,mainPage)
     }
 }
