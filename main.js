@@ -2,9 +2,8 @@ import { MainPage } from "./pages/main/index.js"
 
 const root = document.getElementById("root")
 export class Data {
-    static selectedTags = []; // Статическое поле для хранения выбранных тегов
+    static selectedTags = []; 
 
-    // Добавить тег в список выбранных
     static addTag(tag) {
         if (!this.selectedTags.includes(tag)) {
             console.log(tag);
@@ -12,20 +11,15 @@ export class Data {
             this.selectedTags.push(tag);
         }
     }
-
-    // Удалить тег из списка выбранных
     static removeTag(tag) {
         this.selectedTags = this.selectedTags.filter(t => t !== tag);
     }
-
-    // Очистить все выбранные теги
     static clearTags() {
         this.selectedTags = [];
     }
 
-    // Получить текущие выбранные теги
     static getSelectedTags() {
-        return [...this.selectedTags]; // Возвращаем копию, чтобы избежать мутаций
+        return [...this.selectedTags]; 
     }
 }
 const data = [ 
