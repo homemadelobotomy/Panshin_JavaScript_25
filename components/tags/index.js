@@ -6,7 +6,11 @@ export class Tags{
 
     getHTML(tag){
         return `
-                 <p><span class = "badge bg-secondary m-1" id = "tag-${this.data.id}-${tag}">${tag}</span></p>
+                 <p>
+                 <span class = "badge bg-secondary m-1" id = "tag-${this.data.id}-${tag}">
+                    ${tag}
+                 </span>
+                 </p>
         `
     }
     render(tag){

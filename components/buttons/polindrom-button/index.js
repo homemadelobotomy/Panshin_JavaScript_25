@@ -8,7 +8,7 @@ export class PolindromButton{
     }
     getHTML(){
         return `
-                    <button class = "btn btn-primary" id = "btn-polindrom" style = "width:auto;" >Найти полиндромы</button>
+                    <button class = "btn btn-primary" id = "btn-polindrom" style = "width:auto;  background:#e60023; border:#e60023" >Найти полиндромы</button>
                 `
     }
     render(listener){

@@ -5,14 +5,14 @@ export class BackButtonComponent {
 
     addListeners(listener) {
         document
-            .getElementById("back-button")
+            .getElementById("home-button")
             .addEventListener("click", listener)
     }
 
     getHTML() {
         return (
             `
-                <button id="back-button" class="btn btn-danger" style = "background: #e60023;" type="button">Домой</button>
+                <button id="home-button" class="btn btn-danger" style = "background: #e60023;" type="button">Домой</button>
             `
         )
     }

@@ -1,11 +1,38 @@
 import { MainPage } from "./pages/main/index.js"
 
 const root = document.getElementById("root")
+export class Data {
+    static selectedTags = []; // Статическое поле для хранения выбранных тегов
+
+    // Добавить тег в список выбранных
+    static addTag(tag) {
+        if (!this.selectedTags.includes(tag)) {
+            console.log(tag);
+            
+            this.selectedTags.push(tag);
+        }
+    }
+
+    // Удалить тег из списка выбранных
+    static removeTag(tag) {
+        this.selectedTags = this.selectedTags.filter(t => t !== tag);
+    }
+
+    // Очистить все выбранные теги
+    static clearTags() {
+        this.selectedTags = [];
+    }
+
+    // Получить текущие выбранные теги
+    static getSelectedTags() {
+        return [...this.selectedTags]; // Возвращаем копию, чтобы избежать мутаций
+    }
+}
 const data = [ 
             {
                 id: 1,
                 src: "https://giga.chat/gigachat/files/public/generated/e11d5a44-3c6f-462d-a318-94f81defbf53",
-                title: "Японский пейзаж",
+                title: "Японский шалаш",
                 text: "Japan landscape with beautiful sakura and sunset, with Fuji on background",
                 tags: ["пейзаж","япония","растения","горы","закат"]
             },
@@ -37,7 +64,7 @@ const data = [
                 title: "Астронавт на чужой планете",
                 text: "Astronaut standing on an alien planet with twin suns, surreal landscape with crystalline plants, spaceship wreckage in the background, hyper-realistic, NASA photography style, 8k",
                 tags: ["космос","фантастика","одиночество","планета"]
-            }
+            }, 
         ]
 const mainPage = new MainPage(root,data)
-mainPage.render()
+mainPage.render(data)

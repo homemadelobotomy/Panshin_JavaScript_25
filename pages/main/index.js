@@ -30,21 +30,22 @@ export class MainPage {
 
     clickDelete(e){
         const cardId = e.target.dataset.id
-        console.log(cardId)
         this.data = this.data.filter(item => item.id != cardId)
-        this.render()
+        this.render(this.data)
+       
+        
     }
-    render (){
+    render (cards){
         this.parent.innerHTML = ''
 
         const header = new Header(this.parent,this.data)
         header.render()
-        const options = new MainPageOptions(this.parent,this.data,this)
+        const options = new MainPageOptions(this.parent,cards,this,this.data)
         options.render()
         const html = this.getHtml()
         this.parent.insertAdjacentHTML('beforeend', html)
 
-        this.data.forEach((item) => {
+        cards.forEach((item) => {
             const card = new ProductCardComponent(this.getRoot(),this,this.data)
             card.render(item, this.clickCard.bind(this), this.clickDelete.bind(this)  )
         })

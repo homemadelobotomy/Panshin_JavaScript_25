@@ -29,7 +29,7 @@ export class ProductCardComponent {
             <div class="card m-2 d-flex flex-column align-items-stretch" style="max-width: 300px; flex: 1 1 300px; ">
                 <img class="card-img-top" src="${data.src}" alt="картинка">
                 <div class="card-body d-flex flex-column align-items-between">
-                    <h5 class="card-title">${data.title} </h5>
+                    <h5 class="card-title">${data.title}  </h5>
                     <p class="card-text">${data.text}</p>
                     <div id = "tags-${data.id}" class = "d-flex flex-wrap" ></div>
                     <div id = "card-buttons-${data.id}" class = "d-flex justify-content-between mt-auto" > 
