@@ -89,6 +89,7 @@ build/Release
 # Dependency directories
 node_modules/
 jspm_packages/
+example-nestjs/node_modules/
 
 # Snowpack dependency directory (https://snowpack.dev/)
 web_modules/
@@ -98,6 +99,7 @@ web_modules/
 
 # Optional npm cache directory
 .npm
+
 
 # Optional eslint cache
 .eslintcache
