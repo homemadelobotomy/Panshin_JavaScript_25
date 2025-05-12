@@ -71,11 +71,10 @@ export class AddPage{
         })
     }
     clickUpdate(){
-        
         ajax.patch(stockUrls.updateStockById(this.currentCard),this.getFormData(), response => {
             console.log(response);
-            // const mainPage = new MainPage(this.parent);
-            // mainPage.render()
+            const mainPage = new MainPage(this.parent);
+            mainPage.render()
             
         })
     }
