@@ -1,11 +1,11 @@
-import { BackButtonComponent } from "../buttons/back-button/index.js"
+import { BackButtonComponent } from "../buttons/home-button/index.js"
 import { MainPage } from "../../pages/main/index.js"
 import { Data } from "../../main.js"
+import { AddPage} from "../../pages/addPage/index.js"
 
 export class Header{
-    constructor(parent,data){
-        this.parent = parent
-        this.data = data 
+    constructor(parent){
+        this.parent = parent 
     }
 
 
@@ -27,9 +27,9 @@ export class Header{
     }
 
     clickHome() {
-            const mainPage = new MainPage(this.parent,this.data)
+            const mainPage = new MainPage(this.parent)
             Data.clearTags()
-            mainPage.render(this.data)
+            mainPage.render()
     }
     addListeners(listener){
         document.getElementById('home-button').addEventListener('click',listener)
@@ -38,7 +38,5 @@ export class Header{
         const html = this.getHTML()
         this.parent.insertAdjacentHTML('afterbegin',html)
         this.addListeners(this.clickHome.bind(this))
-        // const backButton = new BackButtonComponent(this.getBackButtonRoot())
-        // backButton.render(this.clickHome.bind(this))
     }
 }

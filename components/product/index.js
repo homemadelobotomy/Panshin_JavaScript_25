@@ -1,9 +1,8 @@
 import { SimilarComponent } from "../similar/index.js"
 
 export class ProductComponent {
-    constructor(parent,cards) {
+    constructor(parent) {
         this.parent = parent
-        this.cards = cards
     }
 
 
@@ -33,15 +32,16 @@ export class ProductComponent {
         const html = this.getHTML(data)
         this.parent.insertAdjacentHTML('beforeend', html)
 
-        const similar = new SimilarComponent(this.parent, this.cards)
+        const similar = new SimilarComponent(this.parent)
         similar.render(data)
 
     }
 }
+
+
 export class ProductComponentSimillar {
-    constructor(parent,cards) {
+    constructor(parent) {
         this.parent = parent
-        this.cards = cards
     }
 
 

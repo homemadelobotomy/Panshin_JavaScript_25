@@ -8,10 +8,13 @@ export class ProductCardComponent {
         this.data = data
     }
 
-    addListeners(data, listener){
+    addListeners(data, listener, editListener){
         document
         .getElementById(`click-card-${data.id}`)
         .addEventListener("click", listener)
+
+        document.getElementById(`edit-card-${data.id}`)
+        .addEventListener('click',editListener)
 
     }
 
@@ -32,15 +35,18 @@ export class ProductCardComponent {
                     <h5 class="card-title">${data.title}  </h5>
                     <p class="card-text">${data.text}</p>
                     <div id = "tags-${data.id}" class = "d-flex flex-wrap" ></div>
-                    <div id = "card-buttons-${data.id}" class = "d-flex justify-content-between mt-auto" > 
-                        <button class="btn btn-primary" style = "background: #e60023; border:#e60023"   id="click-card-${data.id}" data-id = ${data.id}>Подробнее</button>
+                    <div id = "card-buttons-${data.id}" class = "mt-auto" > 
+                        <div  class = "d-flex justify-content-between mb-2" >
+                            <button class="btn btn-primary" style = "background: #e60023; border:#e60023"   id="click-card-${data.id}" data-id = ${data.id}>Подробнее</button>
+                            <button class="btn btn-primary" style = "background: #e60023; border:#e60023"   id="edit-card-${data.id}" data-id = ${data.id}>Изменить</button>
+                        </div>
                     </div>
                 </div>
             </div>
         `
     )
 }
-    render(data, listener, listenerDelete) {
+    render(data, listener, listenerDelete,editListener) {
         this.buttonData = data
         const html = this.getHTML(data)
         this.parent.insertAdjacentHTML('beforeend', html)
@@ -53,6 +59,6 @@ export class ProductCardComponent {
             tag.render(el)
         });
 
-        this.addListeners(data, listener)
+        this.addListeners(data, listener,editListener)
     }
 }
