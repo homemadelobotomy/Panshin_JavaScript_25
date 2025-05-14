@@ -3,6 +3,7 @@ import { MainPage } from "../../pages/main/index.js"
 import { AddButton } from "../buttons/add-button/index.js"
 import { PolindromButton } from "../buttons/polindrom-button/index.js"
 import { SortPopularButton } from "../buttons/sort-popular-button/index.js"
+import { UselessButton } from "../buttons/useless-button/index.js"
 import { FilterComponent } from "../filter/index.js"
 
 export class MainPageOptions{
@@ -83,6 +84,7 @@ export class MainPageOptions{
                     unicTags.set(tag,(unicTags.get(tag) || 0 ) + 1) 
                 })
             });
+            
             this.data.forEach(card => {
                 const arr = [...card.tags].map(tag => unicTags.get(tag))
                 card.stats = this.sumOfSquares(arr)
@@ -139,6 +141,18 @@ export class MainPageOptions{
             mainPage.render(this.allData)
         }
 
+        uselessClick(){
+            const unicTags = new Map()
+            this.data.forEach(card => {
+                card.tags.forEach(tag => {
+                    
+                    unicTags.set(tag,(unicTags.get(tag) || 0 ) + 1) 
+                })
+            });
+            const numbers = Array.from(unicTags.values())
+            alert(`Сумма использования уникальных тегов: ${this.sumOfUnic(numbers)}`)
+        }
+
     render(){
         const html = this.getHTML()
         this.parent.insertAdjacentHTML('beforeend',html)
@@ -155,7 +169,9 @@ export class MainPageOptions{
         const filterMenu = new FilterComponent(this.getOptionsRoot())
         filterMenu.render(this.getTags(),this.clickTagFilter.bind(this),this.resetFilter.bind(this))
         
-        this.sumOfUnic([1,1,1,12,3])
+        const uselessButton = new UselessButton(this.getOptionsRoot())
+        uselessButton.render(this.uselessClick.bind(this))
+
     
     }      
 }
