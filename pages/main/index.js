@@ -29,12 +29,16 @@ export class MainPage {
         productPage.render()
     }
 
-    clickDelete(e){
+    clickDelete = async(e) =>{
         const cardId = e.target.dataset.id
-        ajax.delete(stockUrls.removeStockById(cardId), response => {
-            console.log(`${cardId} deleted`)
-            this.render() 
-        })
+        try {
+            fetch(stockUrls.removeStockById(cardId),{
+                method: 'DELETE'
+            })
+            .then(()=> this.render())
+        } catch (error) {
+            console.log(error)
+        }
        
     }
 
@@ -44,16 +48,27 @@ export class MainPage {
         editPage.render(cardId)
     }
 
-    getData (){
-        ajax.get(stockUrls.getStocks(), (data) =>{
-            this.renderData(data);
-        })
+    getDataFromServer = async () => {
+        try {
+            fetch(stockUrls.getStocks())
+            .then(result => result.json())
+            .then(stocks => this.renderData(stocks))
+            
+        } catch (error) {
+            console.log(error)
+        }
     }
-    getFilteredData(title){
-        ajax.get(stockUrls.getStocksByTitle(title), data => {
-            this.renderData(data)
-        })
+
+    getFilteredData = async (title) => {
+        try {
+            fetch(stockUrls.getStocksByTitle(title))
+            .then(result => result.json())
+            .then(stocks => this.renderData(stocks))
+        } catch (error) {
+            console.log(error)
+        }
     }
+
     renderData(items) {
         items.forEach(item => {
             const productCard = new ProductCardComponent(this.getRoot(),this, items)
@@ -70,7 +85,7 @@ export class MainPage {
         const html = this.getHtml()
         this.parent.insertAdjacentHTML('beforeend', html)
         if(filtered == null){
-            this.getData()
+            this.getDataFromServer()
         }
         else { this.getFilteredData(filtered)}
     }

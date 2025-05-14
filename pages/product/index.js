@@ -11,10 +11,15 @@ export class ProductPage {
         this.id = id
     }
     
-    getData() {
-       ajax.get(stockUrls.getStockById(this.id), data => {
-        this.renderData(data);
-       })
+    getData = async () => {
+       try {
+            fetch(stockUrls.getStockById(this.id))
+            .then(result => result.json())
+            .then(stock => {
+                this.renderData(stock)})
+       } catch (error) {
+        console.log(error)
+       }
     }
     renderData(item){
         const product = new ProductComponent(this.pageRoot())

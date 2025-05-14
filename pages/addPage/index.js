@@ -53,30 +53,53 @@ export class AddPage{
         }
     }
 
-    clickAdd(){
-        ajax.post(stockUrls.createStock(),this.getFormData(), response => {
-            console.log(response);
-            const mainPage = new MainPage(this.parent);
-            mainPage.render()
-        })
+    clickAdd = async () => {
+        try{
+            fetch(stockUrls.createStock(),{
+                method: 'POST',
+                headers: {
+                    'Content-Type' : 'application/json'
+                },
+                body: JSON.stringify(this.getFormData())
+            }).then(() =>{  
+                const mainPage = new MainPage(this.parent);
+                mainPage.render()})
+        } catch(e){
+            console.log(e)
+        }
         
     }
 
-    fillFields(id){
-        ajax.get(stockUrls.getStockById(id), data => {
-            document.getElementById('title').value = data.title
-            document.getElementById('text').value = data.text
-            document.getElementById('src').value = data.src
-            document.getElementById('tags-input').value = data.tags
-        })
+    fillFields = async (id) =>{
+        try {
+            fetch(stockUrls.getStockById(id))
+            .then(result => result.json())
+            .then(stock => {
+                document.getElementById('title').value = stock.title
+                document.getElementById('text').value = stock.text
+                document.getElementById('src').value = stock.src
+                document.getElementById('tags-input').value = stock.tags
+            }
+            )
+        } catch (error) {
+            console.log(error)
+        }
     }
-    clickUpdate(){
-        ajax.patch(stockUrls.updateStockById(this.currentCard),this.getFormData(), response => {
-            console.log(response);
-            const mainPage = new MainPage(this.parent);
-            mainPage.render()
-            
-        })
+    
+    clickUpdate = async () => {
+        try {
+            fetch(stockUrls.updateStockById(this.currentCard), {
+                method: 'PATCH',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(this.getFormData())
+            }).then(() => { 
+                const mainPage = new MainPage(this.parent);
+                mainPage.render()})
+        } catch (error) {
+            console.log(error)
+        }
     }
     render(edit = null){
         this.parent.innerHTML = ''
