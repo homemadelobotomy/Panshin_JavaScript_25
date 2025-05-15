@@ -2,7 +2,7 @@ import { addButtonSubmit } from "../../components/buttons/add-button-submit/inde
 import { UpdateButtonSubmit } from "../../components/buttons/update-button-submit/index.js"
 import { Header } from "../../components/header/index.js"
 import { ajax } from "../../modules/ajax.js"
-import { stockUrls } from "../../modules/stockUrls.js"
+import { postUrls } from "../../modules/postUrls.js"
 import { MainPage } from "../main/index.js"
 
 export class AddPage{
@@ -54,7 +54,7 @@ export class AddPage{
     }
 
     clickAdd(){
-        ajax.post(stockUrls.createStock(),this.getFormData(), response => {
+        ajax.post(postUrls.createPost(),this.getFormData(), response => {
             console.log(response);
             const mainPage = new MainPage(this.parent);
             mainPage.render()
@@ -63,7 +63,7 @@ export class AddPage{
     }
 
     fillFields(id){
-        ajax.get(stockUrls.getStockById(id), data => {
+        ajax.get(postUrls.getPostById(id), data => {
             document.getElementById('title').value = data.title
             document.getElementById('text').value = data.text
             document.getElementById('src').value = data.src
@@ -71,7 +71,7 @@ export class AddPage{
         })
     }
     clickUpdate(){
-        ajax.patch(stockUrls.updateStockById(this.currentCard),this.getFormData(), response => {
+        ajax.patch(postUrls.updatePostById(this.currentCard),this.getFormData(), response => {
             console.log(response);
             const mainPage = new MainPage(this.parent);
             mainPage.render()

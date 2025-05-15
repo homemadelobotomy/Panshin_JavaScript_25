@@ -3,7 +3,7 @@ import { Header } from "../../components/header/index.js"
 import { MainPageOptions } from "../../components/options/index.js"
 import { ProductPage } from "../product/index.js"
 import { ajax } from "../../modules/ajax.js"
-import { stockUrls } from "../../modules/stockUrls.js"
+import { postUrls } from "../../modules/postUrls.js"
 import { AddPage } from "../addPage/index.js"
 
 export class MainPage {
@@ -31,7 +31,7 @@ export class MainPage {
 
     clickDelete(e){
         const cardId = e.target.dataset.id
-        ajax.delete(stockUrls.removeStockById(cardId), response => {
+        ajax.delete(postUrls.removePostById(cardId), response => {
             console.log(`${cardId} deleted`)
             this.render() 
         })
@@ -45,12 +45,12 @@ export class MainPage {
     }
 
     getData (){
-        ajax.get(stockUrls.getStocks(), (data) =>{
+        ajax.get(postUrls.getPosts(), (data) =>{
             this.renderData(data);
         })
     }
     getFilteredData(title){
-        ajax.get(stockUrls.getStocksByTitle(title), data => {
+        ajax.get(postUrls.getPostsByTitle(title), data => {
             this.renderData(data)
         })
     }
