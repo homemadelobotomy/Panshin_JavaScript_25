@@ -1,21 +1,21 @@
 import { Injectable } from '@nestjs/common';
-import { CreateStockDto } from './dto/create-stock.dto';
-import { UpdateStockDto } from './dto/update-stock.dto';
+import { CreatePostDto } from './dto/create-post.dto';
+import { UpdatePostDto } from './dto/update-post.dto';
 import { FileService } from 'src/file.service';
-import { Stock } from './entities/stock.entity';
+import { Posts } from './entities/post.entity';
 
 @Injectable()
-export class StocksService {
-  constructor (private fileService: FileService<Stock[]>) {}
+export class PostsService {
+  constructor (private fileService: FileService<Posts[]>) {}
 
-  create(createStockDto: CreateStockDto) {
+  create(createStockDto: CreatePostDto) {
     const stocks = this.fileService.read();
 
     const stock = {...createStockDto, id: stocks.length + 1};
     this.fileService.add(stock) 
   }
 
-  findAll(title?: string, tags ?:string[] | string): Stock[] {
+  findAll(title?: string, tags ?:string[] | string): Posts[] {
     const stocks = this.fileService.read();
     if (typeof tags === 'string') {
       tags = [tags];
@@ -36,13 +36,13 @@ export class StocksService {
     );
   }
 
-  findOne(id: number):Stock | null {
+  findOne(id: number):Posts | null {
     const stocks = this.fileService.read();
 
     return stocks.find((stock) => stock.id == id) ?? null;
   }
 
-  update(id: number, updateStockDto: UpdateStockDto): void {
+  update(id: number, updateStockDto: UpdatePostDto): void {
     const stocks = this.fileService.read();
     const updatedStocks = stocks.map((stock) =>
       stock.id == id ? {...stock, ...updateStockDto} : stock,

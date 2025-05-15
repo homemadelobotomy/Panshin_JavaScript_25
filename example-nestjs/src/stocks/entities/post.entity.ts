@@ -1,4 +1,4 @@
-export class Stock {
+export class Posts {
     id: number;
     src: string;
     title: string;
