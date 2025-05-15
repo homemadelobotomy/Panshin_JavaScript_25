@@ -3,7 +3,7 @@ import { Header } from "../../components/header/index.js"
 import { MainPageOptions } from "../../components/options/index.js"
 import { ProductPage } from "../product/index.js"
 import { ajax } from "../../modules/ajax.js"
-import { stockUrls } from "../../modules/stockUrls.js"
+import { postUrls } from "../../modules/postUrls.js"
 import { AddPage } from "../addPage/index.js"
 
 export class MainPage {
@@ -32,7 +32,7 @@ export class MainPage {
     clickDelete = async(e) =>{
         const cardId = e.target.dataset.id
         try {
-            fetch(stockUrls.removeStockById(cardId),{
+            fetch(postUrls.removePostById(cardId),{
                 method: 'DELETE'
             })
             .then(()=> this.render())
@@ -50,7 +50,7 @@ export class MainPage {
 
     getDataFromServer = async () => {
         try {
-            fetch(stockUrls.getStocks())
+            fetch(postUrls.getPosts())
             .then(result => result.json())
             .then(stocks => this.renderData(stocks))
             
@@ -61,7 +61,7 @@ export class MainPage {
 
     getFilteredData = async (title) => {
         try {
-            fetch(stockUrls.getStocksByTitle(title))
+            fetch(postUrls.getPostsByTitle(title))
             .then(result => result.json())
             .then(stocks => this.renderData(stocks))
         } catch (error) {

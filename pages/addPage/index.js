@@ -2,7 +2,7 @@ import { addButtonSubmit } from "../../components/buttons/add-button-submit/inde
 import { UpdateButtonSubmit } from "../../components/buttons/update-button-submit/index.js"
 import { Header } from "../../components/header/index.js"
 import { ajax } from "../../modules/ajax.js"
-import { stockUrls } from "../../modules/stockUrls.js"
+import { postUrls } from "../../modules/postUrls.js"
 import { MainPage } from "../main/index.js"
 
 export class AddPage{
@@ -55,7 +55,7 @@ export class AddPage{
 
     clickAdd = async () => {
         try{
-            fetch(stockUrls.createStock(),{
+            fetch(postUrls.createPost(),{
                 method: 'POST',
                 headers: {
                     'Content-Type' : 'application/json'
@@ -72,7 +72,7 @@ export class AddPage{
 
     fillFields = async (id) =>{
         try {
-            fetch(stockUrls.getStockById(id))
+            fetch(postUrls.getPostById(id))
             .then(result => result.json())
             .then(stock => {
                 document.getElementById('title').value = stock.title
@@ -88,7 +88,7 @@ export class AddPage{
     
     clickUpdate = async () => {
         try {
-            fetch(stockUrls.updateStockById(this.currentCard), {
+            fetch(postUrls.updatePostById(this.currentCard), {
                 method: 'PATCH',
                 headers: {
                     'Content-Type': 'application/json'

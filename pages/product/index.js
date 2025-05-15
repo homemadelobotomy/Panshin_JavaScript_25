@@ -3,7 +3,7 @@ import { ProductComponent } from "../../components/product/index.js"
 import { Header } from "../../components/header/index.js"
 import { MainPage } from "../main/index.js"
 import { ajax } from "../../modules/ajax.js"
-import { stockUrls } from "../../modules/stockUrls.js"
+import { postUrls } from "../../modules/postUrls.js"
 
 export class ProductPage {
     constructor(parent, id) {
@@ -13,7 +13,7 @@ export class ProductPage {
     
     getData = async () => {
        try {
-            fetch(stockUrls.getStockById(this.id))
+            fetch(postUrls.getPostById(this.id))
             .then(result => result.json())
             .then(stock => {
                 this.renderData(stock)})
